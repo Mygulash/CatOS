@@ -1,0 +1,42 @@
+.closebutton {
+	cursor: pointer; 
+    margin: 0; 
+    padding: 4px; 
+    background-color: rgba(255, 57, 57, 0.5); 
+    border-radius: 5px; 
+    width: 30px; 
+    text-align: center;
+    text-decoration: bold;
+}
+
+.window {
+    border: solid; 
+    width: 320px; 
+    border-radius: 10px; 
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    background-color: #fff6c7; 
+    display: flex; 
+    flex-direction: column
+}
+
+.windowheader {
+    cursor: move; 
+    padding: 4px; 
+    background-color: rgba(255, 202, 57, 0.5); 
+    border-radius: 10px 10px 0 0; 
+    display: flex; 
+    justify-content: space-between
+}
+
+.strokeme {
+  color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.selected {
+  background-color: rgba(255, 202, 57, 0.5);
+  border-radius: 10px;
+}

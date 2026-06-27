@@ -1,13 +1,47 @@
 <!DOCTYPE html>
 <html>
-
-  <body>
-    <h1>Welcome to CatOS</h1>
-    <h2>Introduction</h2>
-    <p>This OS is based on cats🐈</p>
-    <h2>How it works?</h2>
-    <p>Cats are running laps and making biscuits so you can go on your computer :/</p>
-    <img src="https://static.vecteezy.com/system/resources/previews/058/380/716/non_2x/pixel-art-illustration-of-a-cute-orange-and-white-cat-in-a-sitting-position-this-adorable-design-rendered-in-a-classic-pixel-style-adds-a-retro-and-whimsical-touch-on-it-vector.jpg" />
-</body>
-
+    <head>
+        <script type="module" src="./script.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+    </head>
+    <body style="font-family: Courier New, Noto Sans, sans-serif; text-align: center; margin: 0px; padding: 0px; background-image: url(./catwallpaper.webp); background-size: cover; height: 100vh; width: 100vw; overflow: hidden;">
+        <div id = "top" style="position: absolute; width: 100%; display: flex; backdrop-filter: blur(10px); background-color: rgba(255, 202, 57, 0.5); color: #fff; justify-content: space-between">
+            <div style="display: flex; align-items: center; margin-left: 12px;">
+                <img style="width: 40px; height: 40px; border-radius: 6px; object-fit: cover; margin: 0px; padding: 0px;" src="https://static.vecteezy.com/system/resources/previews/058/380/716/non_2x/pixel-art-illustration-of-a-cute-orange-and-white-cat-in-a-sitting-position-this-adorable-design-rendered-in-a-classic-pixel-style-adds-a-retro-and-whimsical-touch-on-it-vector.jpg" />
+                <p id="welcomeopen" style="margin-left: 12px; font-size: 18px; font-weight: bold; cursor: pointer;">
+                    <b>CatOS</b>
+                </p>
+            </div>
+            <p id="timeElement" style="margin-right: 18px; font-size: 18px; font-weight: bold;">
+                <b>6/21/2023 3:41 PM</b>
+            </p>
+        </div>
+        <div style="padding-top: 64px; padding-left: 16px;">
+            <div class="desktopApps" style="text-align: center; padding: 16px; filter: drop-shadow(0 0 8px black); width: fit-content">
+                <img src="./catnote.webp" style="width: 64px; height: 64px; border-radius: 16px;">
+                <p class="strokeme" style="margin: 0px;"><b>CatNotes</b></p>
+            </div>
+        </div>
+        <div class="window" id="welcome">
+            <div class="windowheader" id="welcomeheader">
+                <p style="margin: 0; padding: 4px;"><b>Welcome!</b></p>
+                <p class="closebutton" id="welcomeclose"><b>x</b></p>
+            </div>
+            <h1 style="margin: 16px; padding: 4px;"><b>Welcome to CatOS</b></h1>
+            <h2 style="margin: 4px; padding: 4px;"><u>Introduction</u></h2>
+            <p style="margin: 8px; padding: 4px;">This OS is based on cats🐈</p>
+            <h2 style="margin: 4px; padding: 4px;"><u>How it works?</u></h2>
+            <p style="margin: 8px; padding: 4px;">Cats are running laps and making biscuits so you can go on your computer :/</p>
+            <img style="width: 256px; height: 256px; align-self: center; border-radius: 16px; object-fit: cover; margin: 8px; padding: 4px;" src="https://static.vecteezy.com/system/resources/previews/058/380/716/non_2x/pixel-art-illustration-of-a-cute-orange-and-white-cat-in-a-sitting-position-this-adorable-design-rendered-in-a-classic-pixel-style-adds-a-retro-and-whimsical-touch-on-it-vector.jpg" />
+        </div>
+        <div class="window" id="notes" style="width: 520px; height: 480px; display: none;">
+            <div class="windowheader" id="notesheader">
+                <p style="margin: 0; padding: 4px;"><b>CatNotes</b></p>
+                <p class="closebutton" id="notesclose"><b>x</b></p>
+            </div>
+            <div style="background-color: #fff; margin: 6px; border-radius: 12px; padding: 16px; height: 400px; overflow-y: auto;">
+                <p>CatNotes</p>
+            </div>
+        </div>
+    </body>
 </html>
