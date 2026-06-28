@@ -17,13 +17,17 @@
             </p>
         </div>
         <div style="padding-top: 64px; padding-left: 16px;">
-            <div class="desktopApps" style="text-align: center; padding: 16px; filter: drop-shadow(0 0 8px black); width: fit-content">
+            <div id="notes" class="desktopApps" style="text-align: center; padding: 16px; filter: drop-shadow(0 0 8px black); width: fit-content">
                 <img src="./catnote.webp" style="width: 64px; height: 64px; border-radius: 16px;">
                 <p class="strokeme" style="margin: 0px;"><b>CatNotes</b></p>
             </div>
+            <div id="gallery" class="desktopApps" style="text-align: center; padding: 16px; filter: drop-shadow(0 0 8px black); width: fit-content">
+                <img src="./gallery.png" style="width: 64px; height: 64px; border-radius: 16px;">
+                <p class="strokeme" style="margin: 0px;"><b>Gallery</b></p>
+            </div>
         </div>
-        <div class="window" id="welcome">
-            <div class="windowheader" id="welcomeheader">
+        <div class="window" id="welcomewindow">
+            <div class="windowheader" id="welcomewindowheader">
                 <p style="margin: 0; padding: 4px;"><b>Welcome!</b></p>
                 <p class="closebutton" id="welcomeclose"><b>x</b></p>
             </div>
@@ -34,8 +38,8 @@
             <p style="margin: 8px; padding: 4px;">Cats are running laps and making biscuits so you can go on your computer :/</p>
             <img style="width: 256px; height: 256px; align-self: center; border-radius: 16px; object-fit: cover; margin: 8px; padding: 4px;" src="https://static.vecteezy.com/system/resources/previews/058/380/716/non_2x/pixel-art-illustration-of-a-cute-orange-and-white-cat-in-a-sitting-position-this-adorable-design-rendered-in-a-classic-pixel-style-adds-a-retro-and-whimsical-touch-on-it-vector.jpg" />
         </div>
-        <div class="window" id="notes" style="width: 640px; height: 480px; display: none;">
-            <div class="windowheader" id="notesheader">
+        <div class="window" id="noteswindow" style="width: 640px; height: 480px; display: none;">
+            <div class="windowheader" id="noteswindowheader">
                 <p style="margin: 0; padding: 4px;"><b>CatNotes</b></p>
                 <p class="closebutton" id="notesclose"><b>x</b></p>
             </div>
@@ -44,6 +48,17 @@
 
                 </div >
                 <div id="notesContent" style="background-color: #fff; margin: 6px; border-radius: 12px; padding: 16px; height: 400px; width: 500px; overflow-y: auto; display:flex">
+                </div>
+            </div>
+        </div>
+        <div class="window" id="gallerywindow" style="width: 640px; height: 480px; display: none;">
+            <div class="windowheader" id="gallerywindowheader">
+                <p style="margin: 0; padding: 4px;"><b>Gallery</b></p>
+                <p class="closebutton" id="galleryclose"><b>x</b></p>
+            </div>
+            <div style="flex-direction: row; display: flex;">
+                <div id="galleryContent" style="background-color: #fff; margin: 6px; border-radius: 12px; padding: 16px; height: 400px; width: 600px; overflow-y: auto; display:grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 15px">
+                    
                 </div>
             </div>
         </div>

@@ -6,59 +6,47 @@ function updateTime() {
 
 setInterval(updateTime, 1000);
 
+var photos = "./Photos"
+
 var biggestIndex = 1;
 
 var topBar = document.querySelector("#top")
-var welcomeScreen = document.querySelector("#welcome")
+var welcomeScreen = document.querySelector("#welcomewindow")
 var welcomeScreenClose = document.querySelector("#welcomeclose")
 var welcomeScreenOpen = document.querySelector("#welcomeopen")
 var selectedIcon = undefined
 
 var desktopApps = document.querySelectorAll(".desktopApps")
 
-var NotesScreen = document.querySelector("#notes")
+var NotesScreen = document.querySelector("#noteswindow")
 var NotesScreenClose = document.querySelector("#notesclose")
+
+const photoFiles = [
+    "148-silly-cat-meme-template.jpg", "aaaaaa.jpg", "angy.jpg", 
+    "angysmollcat.jpg", "apolocheese.jpg", "bigangy.jpg", "blind.jpg", 
+    "blush.webp", "bruh.gif", "catskiing.gif", "catwithhearth.gif", 
+    "crazyeating.jpg", "creepysmile.gif", "crying.jpg", "donttouch.jpg", 
+    "dontwanttogo.jpg", "download.jpg", "Dsmile.jpg", "girlahhphoto.jpg", 
+    "grrr.webp", "hehehe.jpg", "interesting.gif", "kocicka.webp", 
+    "lick.jpg", "love.jpg"
+];
 
 var content = [
   {
-    title: "Welcome",
-    date: "06/28/2023",
+    title: "Cat1",
+    date: "06/28/2026",
     content: `
               <p contenteditable="True">
-          <span contenteditable="true">Welcome to <strong>Hacker Notes</strong>
-            </br>
-            </br>
-            <img src=""
-              style="width: 96px; border-radius: 16px" />
-            </br>
-            </br>
-
-            This is a place where I store my thoughts as they come to mind. What exactly will you find when browsing
-            through
-            these notes? As I <del>once said</del> <ins>always say</ins>
-          </span>
-        <blockquote
-          style="background-color: #F9F9F9; margin-top: 16x; margin-bottom: 16px; margin-left: 0px; margin-right: 0px; padding: 16px; border-radius: 16px;"
-          contenteditable="true">
-          <i>Time Will Tell
-            </br>
-            ~ Thomas
-          </i>
-        </blockquote>
-        <span contenteditable="true">
-          I suppose you may see a bit of content about technology. Perhaps some insights regarding recent projects.
-          Maybe
-          even some thoughts regarding nature & tea? Go and find out!
-        </span>
+          Today i have fed my cat 2 times and hugged her for like 20 hours as I should!!!
         </p>
       `
   },
     {
-    title: "Sample Text",
-    date: "06/28/2023",
+    title: "Cat2",
+    date: "06/28/2026",
     content: `
               <p contenteditable="True">
-          Here's some sample text
+          My other cat was missing today D: But she came back in the evening so chill :)
         </p>
       `
   }
@@ -134,6 +122,7 @@ NotesScreenClose.addEventListener("click", function() {
 
 desktopApps.forEach(icon => {
   icon.addEventListener("click", function() {
+    console.log(icon);
     handleIconTap(icon);
   });
 });
@@ -145,7 +134,7 @@ function closeWindow(element) {
 
 function openWindow(element) {
   element.style.display = "flex";
-  biggestIndex++;  // Increment biggestIndex by 1
+  biggestIndex++; 
   element.style.zIndex = biggestIndex;
   topBar.style.zIndex = biggestIndex + 1;
 }
@@ -161,9 +150,10 @@ function deselectIcon(element) {
 }
 
 function handleIconTap(element) {
+    console.log(element.classList)
     if (element.classList.contains("selected")) {
         deselectIcon(element);
-        openWindow(NotesScreen);
+        openWindow(document.querySelector("#"+element.id+"window"));
     } else {
         selectIcon(element);
     }
@@ -176,19 +166,23 @@ function addWindowTapHandling(element) {
 }
 
 function handleWindowTap(element) {
-  biggestIndex++;  // Increment biggestIndex by 1
+  biggestIndex++; 
   element.style.zIndex = biggestIndex;
   topBar.style.zIndex = biggestIndex + 1;
   deselectIcon(selectedIcon)
 }
 
 function makeClosable(elementName) {
-  var element = document.querySelector("#" + elementName)
+  var elementwindow = document.querySelector("#" + elementName + "window")
   var closeButton = document.querySelector("#" + elementName + "close")
+
+  closeButton.addEventListener("click", function() {
+    closeWindow(elementwindow);
+  });
 }
 
 function initializeWindow(elementName) {
-  var screen = document.querySelector("#" + elementName)
+  var screen = document.querySelector("#" + elementName +"window")
   addWindowTapHandling(screen)
   makeClosable(elementName)
   dragElement(screen)
@@ -217,6 +211,29 @@ function addToSideBar(index) {
   sidebar.appendChild(newDiv);
 }
 
+function loadGallery() {
+    const galleryContainer = document.querySelector("#galleryContent");
+    galleryContainer.innerHTML = ""; 
+
+    for (let i = 0; i < photoFiles.length; i++) {
+        let itemDiv = document.createElement("div");
+        itemDiv.className = "galler-item"
+
+        let img = document.createElement("img");
+        img.src = `Photos/${photoFiles[i]}`;
+        img.className = "gallery-image"; 
+
+        let label = document.createElement("p");
+        label.className = "gallery-label";
+        label.innerText = photoFiles[i];
+
+        itemDiv.appendChild(img);
+        itemDiv.appendChild(label);
+
+        galleryContainer.appendChild(itemDiv);
+    }
+}
+
 for (let i = 0; i < content.length; i++) {
   addToSideBar(i)
 }
@@ -225,3 +242,5 @@ setNotesContent(0)
 
 initializeWindow("welcome")
 initializeWindow("notes")
+initializeWindow("gallery")
+loadGallery()
