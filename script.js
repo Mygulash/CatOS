@@ -19,6 +19,51 @@ var desktopApps = document.querySelectorAll(".desktopApps")
 var NotesScreen = document.querySelector("#notes")
 var NotesScreenClose = document.querySelector("#notesclose")
 
+var content = [
+  {
+    title: "Welcome",
+    date: "06/28/2023",
+    content: `
+              <p contenteditable="True">
+          <span contenteditable="true">Welcome to <strong>Hacker Notes</strong>
+            </br>
+            </br>
+            <img src=""
+              style="width: 96px; border-radius: 16px" />
+            </br>
+            </br>
+
+            This is a place where I store my thoughts as they come to mind. What exactly will you find when browsing
+            through
+            these notes? As I <del>once said</del> <ins>always say</ins>
+          </span>
+        <blockquote
+          style="background-color: #F9F9F9; margin-top: 16x; margin-bottom: 16px; margin-left: 0px; margin-right: 0px; padding: 16px; border-radius: 16px;"
+          contenteditable="true">
+          <i>Time Will Tell
+            </br>
+            ~ Thomas
+          </i>
+        </blockquote>
+        <span contenteditable="true">
+          I suppose you may see a bit of content about technology. Perhaps some insights regarding recent projects.
+          Maybe
+          even some thoughts regarding nature & tea? Go and find out!
+        </span>
+        </p>
+      `
+  },
+    {
+    title: "Sample Text",
+    date: "06/28/2023",
+    content: `
+              <p contenteditable="True">
+          Here's some sample text
+        </p>
+      `
+  }
+]
+
 // Step 1: Define a function called `dragElement` that makes an HTML element draggable.
 function dragElement(element) {
   // Step 2: Set up variables to keep track of the element's position.
@@ -60,7 +105,11 @@ function dragElement(element) {
     initialX = e.clientX;
     initialY = e.clientY;
     // Step 11: Update the element's new position by modifying its `top` and `left` CSS properties.
-    element.style.top = (element.offsetTop - currentY) + "px";
+    if (element.offsetTop - currentY < 56 + element.offsetHeight/2 ) {
+      element.style.top = (56 + element.offsetHeight/2) + "px";
+    } else {
+      element.style.top = (element.offsetTop - currentY) + "px";
+    }
     element.style.left = (element.offsetLeft - currentX) + "px";
   }
 
@@ -144,6 +193,35 @@ function initializeWindow(elementName) {
   makeClosable(elementName)
   dragElement(screen)
 }
+
+function setNotesContent(index) {
+  var notesContent = document.querySelector("#notesContent")
+  notesContent.innerHTML = content[index].content
+}
+
+function addToSideBar(index) {
+	var sidebar = document.querySelector("#sidebar");
+  var note = content[index];
+  var newDiv = document.createElement("div");
+  newDiv.innerHTML = `
+    <p style="margin-top: 8px; margin-bottom: 0px">
+      ${note.title}
+    </p>
+    <p style="font-size: 12px; margin: 0px;">
+      ${note.date}
+    </p>
+  `;
+  newDiv.addEventListener("click", function() {
+    setNotesContent(index);
+  });
+  sidebar.appendChild(newDiv);
+}
+
+for (let i = 0; i < content.length; i++) {
+  addToSideBar(i)
+}
+
+setNotesContent(0)
 
 initializeWindow("welcome")
 initializeWindow("notes")

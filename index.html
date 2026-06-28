@@ -34,13 +34,17 @@
             <p style="margin: 8px; padding: 4px;">Cats are running laps and making biscuits so you can go on your computer :/</p>
             <img style="width: 256px; height: 256px; align-self: center; border-radius: 16px; object-fit: cover; margin: 8px; padding: 4px;" src="https://static.vecteezy.com/system/resources/previews/058/380/716/non_2x/pixel-art-illustration-of-a-cute-orange-and-white-cat-in-a-sitting-position-this-adorable-design-rendered-in-a-classic-pixel-style-adds-a-retro-and-whimsical-touch-on-it-vector.jpg" />
         </div>
-        <div class="window" id="notes" style="width: 520px; height: 480px; display: none;">
+        <div class="window" id="notes" style="width: 640px; height: 480px; display: none;">
             <div class="windowheader" id="notesheader">
                 <p style="margin: 0; padding: 4px;"><b>CatNotes</b></p>
                 <p class="closebutton" id="notesclose"><b>x</b></p>
             </div>
-            <div style="background-color: #fff; margin: 6px; border-radius: 12px; padding: 16px; height: 400px; overflow-y: auto;">
-                <p>CatNotes</p>
+            <div style="flex-direction: row; display: flex;">
+                <div id="sidebar" style="background-color: rgba(255, 202, 57, 0.5); margin: 6px; border-radius: 12px; padding: 8px; height: 400px; width: 100px; overflow-y: scroll; display:flex; scrollbar-width: none; flex-direction: column; margin: 8px;">
+
+                </div >
+                <div id="notesContent" style="background-color: #fff; margin: 6px; border-radius: 12px; padding: 16px; height: 400px; width: 500px; overflow-y: auto; display:flex">
+                </div>
             </div>
         </div>
     </body>
